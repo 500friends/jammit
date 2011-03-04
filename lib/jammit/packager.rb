@@ -178,7 +178,7 @@ module Jammit
     
     # resolve true paths recursively
     def resolve_true_path(x, config)
-      config[x.to_sym].present? ? config[x.to_sym].map{|y| resolve_true_path(y, config)} : x
+      config[x.to_sym] ? config[x.to_sym].map{|y| resolve_true_path(y, config)} : x
     end
     
     # fill in wildcard for substitution values
