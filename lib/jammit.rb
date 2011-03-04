@@ -57,6 +57,7 @@ module Jammit
                   :javascript_compressor, :compressor_options, :css_compressor,
                   :css_compressor_options, :template_extension,
                   :template_extension_matcher, :allow_debugging,
+                  :javascript_prefix, :stylesheet_prefix, :wildcard_substitution,
                   :rewrite_relative_paths, :public_root
     attr_accessor :javascript_compressors, :css_compressors
   end
@@ -92,6 +93,9 @@ module Jammit
     @mhtml_enabled          = @embed_assets && @embed_assets != "datauri"
     @compressor_options     = symbolize_keys(conf[:compressor_options] || {})
     @css_compressor_options = symbolize_keys(conf[:css_compressor_options] || {})
+    @javascript_prefix = conf[:javascript_prefix] || "public/javascripts/"
+    @stylesheet_prefix = conf[:stylesheet_prefix] || "public/stylesheets/"
+    @wildcard_substitution = conf[:wildcard_substitution] || ["", ".dev", ".stage"]
     set_javascript_compressor(conf[:javascript_compressor])
     set_css_compressor(conf[:css_compressor])
     set_package_assets(conf[:package_assets])
