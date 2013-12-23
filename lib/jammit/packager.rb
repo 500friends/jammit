@@ -183,7 +183,7 @@ module Jammit
     
     # fill in wildcard for substitution values
     def fill_in_wild_card(config, substitution_values)
-      config.each do |key, value|
+      config.dup.each do |key, value|
         if key.to_s.include?("?")
           config.delete(key)
           substitution_values.each do |sub|

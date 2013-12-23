@@ -3,3 +3,6 @@
 example
 raws
 test/precache
+
+.idea/*
+.DS_Store
